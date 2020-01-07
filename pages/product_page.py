@@ -8,10 +8,11 @@ class ProductPage(BasePage):
         self.click_button(*ProductPageLocators.ADD_BUTTON)
 
     def product_name_is_correct(self):
-        assert self.element_text(*ProductPageLocators.PRODUCT_NAME) in \
-               self.element_text(*ProductPageLocators.ADDED_PRODUCT), \
+        assert_text = self.element_text(*ProductPageLocators.PRODUCT_NAME) + " has been added to your basket."
+        assert assert_text == self.element_text(*ProductPageLocators.ADDED_PRODUCT), \
             "Product name not correct"
 
     def price_is_correct(self):
-        assert self.element_text(*ProductPageLocators.PRODUCT_PRICE) in self.element_text(*ProductPageLocators.CART_PRICE), \
+        assert_text = "Your basket total is now " + self.element_text(*ProductPageLocators.PRODUCT_PRICE)
+        assert assert_text == self.element_text(*ProductPageLocators.CART_PRICE), \
             "Price is not correct"
