@@ -17,6 +17,10 @@ class ProductPage(BasePage):
         assert assert_text == self.element_text(*ProductPageLocators.CART_PRICE), \
             "Price is not correct"
 
+    def should_be_success_message(self):
+        assert self.is_element_present(*ProductPageLocators.ADDED_PRODUCT), \
+            "Success message is not presented, but should be"
+
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.ADDED_PRODUCT), \
             "Success message is presented, but should not be"

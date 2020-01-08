@@ -5,7 +5,7 @@ from pages.product_page import ProductPage
 link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
 
 
-@pytest.xfail
+@pytest.mark.skip
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page = ProductPage(browser, link)
     page.open()
@@ -21,7 +21,7 @@ def test_guest_cant_see_success_message(browser):
     page.should_not_be_success_message()
 
 
-@pytest.xfail
+@pytest.mark.skip
 def test_message_disappeared_after_adding_product_to_basket(browser):
     page = ProductPage(browser, link)
     page.open()
